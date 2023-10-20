@@ -12,23 +12,44 @@
     ],
     "type": "library",
     "require": {
+        "php": "^8.1",
         "automattic/woocommerce": "^3.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.3|^10.0",
-        "illuminate/support": "^9.0|^10.0"
+        "illuminate/support": "^9.0|^10.0",
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.8",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^8.8",
+        "pestphp/pest": "^2.20",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "Md Abu Ahsan Basir",
             "email": "maab.career@gmail.com"
+        },
+        {
+            "name": "palPalani",
+            "email": "palani.p@gmail.com",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "Codexshaper\\WooCommerce\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PalPalani\\WooCommerceApi\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
         }
     },
     "extra": {
@@ -64,5 +85,31 @@
                 "Query": "Codexshaper\\WooCommerce\\Facades\\Query"
             }
         }
-    }
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "clear": "@php vendor/bin/testbench package:purge-laravel-woocommerce --ansi",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "build": [
+            "@composer run prepare",
+            "@php vendor/bin/testbench workbench:build --ansi"
+        ],
+        "start": [
+            "Composer\\Config::disableProcessTimeout",
+            "@composer run build",
+            "@php vendor/bin/testbench serve"
+        ],
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "prefer-stable": true
 }
