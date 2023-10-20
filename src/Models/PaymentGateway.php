@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class PaymentGateway extends BaseModel
+final class PaymentGateway extends BaseModel
 {
     use QueryBuilderTrait;
 

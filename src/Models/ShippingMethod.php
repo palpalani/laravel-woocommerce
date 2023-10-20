@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class ShippingMethod extends BaseModel
+final class ShippingMethod extends BaseModel
 {
     use QueryBuilderTrait;
 

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class TaxClass extends BaseModel
+final class TaxClass extends BaseModel
 {
     use QueryBuilderTrait;
 

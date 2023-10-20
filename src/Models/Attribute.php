@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Attribute extends BaseModel
+final class Attribute extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,9 +16,8 @@ class Attribute extends BaseModel
     /**
      * Retrieve all Items.
      *
-     * @param int   $attribute_id
-     * @param array $options
-     *
+     * @param  int  $attribute_id
+     * @param  array  $options
      * @return array
      */
     protected function getTerms($attribute_id, $options = [])
@@ -29,10 +30,9 @@ class Attribute extends BaseModel
     /**
      * Retrieve single Item.
      *
-     * @param int   $attribute_id
-     * @param int   $term_id
-     * @param array $options
-     *
+     * @param  int  $attribute_id
+     * @param  int  $term_id
+     * @param  array  $options
      * @return object
      */
     protected function getTerm($attribute_id, $term_id, $options = [])
@@ -45,9 +45,8 @@ class Attribute extends BaseModel
     /**
      * Create new Item.
      *
-     * @param int   $attribute_id
-     * @param array $data
-     *
+     * @param  int  $attribute_id
+     * @param  array  $data
      * @return object
      */
     protected function addTerm($attribute_id, $data)
@@ -60,10 +59,9 @@ class Attribute extends BaseModel
     /**
      * Update Existing Item.
      *
-     * @param int   $attribute_id
-     * @param int   $term_id
-     * @param array $data
-     *
+     * @param  int  $attribute_id
+     * @param  int  $term_id
+     * @param  array  $data
      * @return object
      */
     protected function updateTerm($attribute_id, $term_id, $data)
@@ -76,10 +74,9 @@ class Attribute extends BaseModel
     /**
      * Destroy Item.
      *
-     * @param int   $attribute_id
-     * @param int   $term_id
-     * @param array $options
-     *
+     * @param  int  $attribute_id
+     * @param  int  $term_id
+     * @param  array  $options
      * @return object
      */
     protected function deleteTerm($attribute_id, $term_id, $options = [])
@@ -92,9 +89,8 @@ class Attribute extends BaseModel
     /**
      * Batch Update.
      *
-     * @param int   $attribute_id
-     * @param array $data
-     *
+     * @param  int  $attribute_id
+     * @param  array  $data
      * @return object
      */
     protected function batchTerm($attribute_id, $data)

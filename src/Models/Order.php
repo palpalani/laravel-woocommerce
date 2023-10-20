@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Order extends BaseModel
+final class Order extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,9 +16,8 @@ class Order extends BaseModel
     /**
      * Retrieve all notes.
      *
-     * @param int   $order_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  array  $options
      * @return array
      */
     protected function notes($order_id, $options = [])
@@ -29,10 +30,9 @@ class Order extends BaseModel
     /**
      * Retreive a note.
      *
-     * @param int   $order_id
-     * @param int   $note_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  int  $note_id
+     * @param  array  $options
      * @return object
      */
     protected function note($order_id, $note_id, $options = [])
@@ -45,9 +45,8 @@ class Order extends BaseModel
     /**
      * Create a note.
      *
-     * @param int   $order_id
-     * @param array $data
-     *
+     * @param  int  $order_id
+     * @param  array  $data
      * @return object
      */
     protected function createNote($order_id, $data = [])
@@ -60,10 +59,9 @@ class Order extends BaseModel
     /**
      * Delete a note.
      *
-     * @param int   $order_id
-     * @param int   $note_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  int  $note_id
+     * @param  array  $options
      * @return object
      */
     protected function deleteNote($order_id, $note_id, $options = [])
@@ -76,9 +74,8 @@ class Order extends BaseModel
     /**
      * Retrieve all refunds.
      *
-     * @param int   $order_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  array  $options
      * @return array
      */
     protected function refunds($order_id, $options = [])
@@ -91,10 +88,9 @@ class Order extends BaseModel
     /**
      * Retrieve a refund.
      *
-     * @param int   $order_id
-     * @param int   $refund_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  int  $refund_id
+     * @param  array  $options
      * @return object
      */
     protected function refund($order_id, $refund_id, $options = [])
@@ -107,9 +103,8 @@ class Order extends BaseModel
     /**
      * Create refund.
      *
-     * @param int   $order_id
-     * @param array $data
-     *
+     * @param  int  $order_id
+     * @param  array  $data
      * @return object
      */
     protected function createRefund($order_id, $data = [])
@@ -122,10 +117,9 @@ class Order extends BaseModel
     /**
      * Delete refund.
      *
-     * @param int   $order_id
-     * @param int   $refund_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  int  $refund_id
+     * @param  array  $options
      * @return object
      */
     protected function deleteRefund($order_id, $refund_id, $options = [])

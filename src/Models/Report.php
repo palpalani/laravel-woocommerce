@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Report extends BaseModel
+final class Report extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,8 +16,7 @@ class Report extends BaseModel
     /**
      * Retrieve all sales.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function sales($options = [])
@@ -28,8 +29,7 @@ class Report extends BaseModel
     /**
      * Retrieve all top sellers.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function topSellers($options = [])
@@ -42,8 +42,7 @@ class Report extends BaseModel
     /**
      * Retrieve all coupons.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function coupons($options = [])
@@ -56,8 +55,7 @@ class Report extends BaseModel
     /**
      * Retrieve all customers.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function customers($options = [])
@@ -70,8 +68,7 @@ class Report extends BaseModel
     /**
      * Retrieve all orders.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function orders($options = [])
@@ -84,8 +81,7 @@ class Report extends BaseModel
     /**
      * Retrieve all products.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function products($options = [])
@@ -98,8 +94,7 @@ class Report extends BaseModel
     /**
      * Retrieve all reviews.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function reviews($options = [])

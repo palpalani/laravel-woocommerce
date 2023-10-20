@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Term extends BaseModel
+final class Term extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,9 +16,8 @@ class Term extends BaseModel
     /**
      * Retrieve all Items.
      *
-     * @param int   $attribute_id
-     * @param array $options
-     *
+     * @param  int  $attribute_id
+     * @param  array  $options
      * @return array
      */
     protected function all($attribute_id, $options = [])
@@ -29,10 +30,9 @@ class Term extends BaseModel
     /**
      * Retrieve single Item.
      *
-     * @param int   $attribute_id
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $attribute_id
+     * @param  int  $id
+     * @param  array  $options
      * @return object
      */
     protected function find($attribute_id, $id, $options = [])
@@ -45,9 +45,8 @@ class Term extends BaseModel
     /**
      * Create new Item.
      *
-     * @param int   $attribute_id
-     * @param array $data
-     *
+     * @param  int  $attribute_id
+     * @param  array  $data
      * @return object
      */
     protected function create($attribute_id, $data)
@@ -60,10 +59,9 @@ class Term extends BaseModel
     /**
      * Update Existing Item.
      *
-     * @param int   $attribute_id
-     * @param int   $id
-     * @param array $data
-     *
+     * @param  int  $attribute_id
+     * @param  int  $id
+     * @param  array  $data
      * @return object
      */
     protected function update($attribute_id, $id, $data)
@@ -76,10 +74,9 @@ class Term extends BaseModel
     /**
      * Destroy Item.
      *
-     * @param int   $attribute_id
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $attribute_id
+     * @param  int  $id
+     * @param  array  $options
      * @return object
      */
     protected function delete($attribute_id, $id, $options = [])
@@ -92,9 +89,8 @@ class Term extends BaseModel
     /**
      * Batch Update.
      *
-     * @param int   $attribute_id
-     * @param array $data
-     *
+     * @param  int  $attribute_id
+     * @param  array  $data
      * @return object
      */
     protected function batch($attribute_id, $data)
@@ -107,11 +103,10 @@ class Term extends BaseModel
     /**
      * Paginate results.
      *
-     * @param int   $attribute_id
-     * @param int   $per_page
-     * @param int   $current_page
-     * @param array $options
-     *
+     * @param  int  $attribute_id
+     * @param  int  $per_page
+     * @param  int  $current_page
+     * @param  array  $options
      * @return array
      */
     protected function paginate(
@@ -128,8 +123,7 @@ class Term extends BaseModel
     /**
      * Count all results.
      *
-     * @param int $attribute_id
-     *
+     * @param  int  $attribute_id
      * @return int
      */
     protected function count($attribute_id)
@@ -142,8 +136,7 @@ class Term extends BaseModel
     /**
      * Store data.
      *
-     * @param int $attribute_id
-     *
+     * @param  int  $attribute_id
      * @return array
      */
     public function save($attribute_id)

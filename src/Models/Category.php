@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Category extends BaseModel
+final class Category extends BaseModel
 {
     use QueryBuilderTrait;
 

@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Traits;
+
+use Exception;
 
 trait WooCommerceTrait
 {
@@ -8,9 +12,8 @@ trait WooCommerceTrait
      * GET method.
      * Retrieve data.
      *
-     * @param string $endpoint API endpoint.
-     * @param array  $options
-     *
+     * @param  string  $endpoint API endpoint.
+     * @param  array  $options
      * @return array
      */
     public function all($endpoint = '', $options = [])
@@ -19,8 +22,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->get($endpoint, $options);
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 
@@ -28,9 +31,8 @@ trait WooCommerceTrait
      * GET method.
      * Retrieve Single data.
      *
-     * @param string $endpoint API endpoint.
-     * @param array  $options
-     *
+     * @param  string  $endpoint API endpoint.
+     * @param  array  $options
      * @return array
      */
     public function find($endpoint = '', $options = [])
@@ -39,8 +41,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->get($endpoint, $options);
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 
@@ -48,9 +50,8 @@ trait WooCommerceTrait
      * POST method.
      * Insert data.
      *
-     * @param string $endpoint API endpoint.
-     * @param array  $data
-     *
+     * @param  string  $endpoint API endpoint.
+     * @param  array  $data
      * @return array
      */
     public function create($endpoint, $data)
@@ -59,8 +60,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->post($endpoint, $data);
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 
@@ -68,9 +69,8 @@ trait WooCommerceTrait
      * PUT method.
      * Update data.
      *
-     * @param string $endpoint API endpoint.
-     * @param array  $data
-     *
+     * @param  string  $endpoint API endpoint.
+     * @param  array  $data
      * @return array
      */
     public function update($endpoint, $data)
@@ -79,8 +79,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->put($endpoint, $data);
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 
@@ -88,9 +88,8 @@ trait WooCommerceTrait
      * DELETE method.
      * Remove data.
      *
-     * @param string $endpoint API endpoint.
-     * @param array  $options
-     *
+     * @param  string  $endpoint API endpoint.
+     * @param  array  $options
      * @return array
      */
     public function delete($endpoint, $options = [])
@@ -99,8 +98,8 @@ trait WooCommerceTrait
             self::__construct();
 
             return $this->client->delete($endpoint, $options);
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 
@@ -113,8 +112,8 @@ trait WooCommerceTrait
     {
         try {
             return $this->client->http->getRequest();
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 
@@ -127,8 +126,8 @@ trait WooCommerceTrait
     {
         try {
             return $this->client->http->getResponse();
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 
@@ -159,7 +158,7 @@ trait WooCommerceTrait
      */
     public function current()
     {
-        return !empty($this->getRequest()->getParameters()['page']) ? $this->getRequest()->getParameters()['page'] : 1;
+        return ! empty($this->getRequest()->getParameters()['page']) ? $this->getRequest()->getParameters()['page'] : 1;
     }
 
     /**

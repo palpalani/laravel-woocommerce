@@ -1,19 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PalPalani\WooCommerceApi\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use PalPalani\WooCommerceApi\WooCommerceApiServiceProvider;
 
-class TestCase extends Orchestra
+final class TestCase extends Orchestra
 {
     protected function setUp(): void
     {
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'PalPalani\\WooCommerceApi\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'PalPalani\\WooCommerceApi\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
@@ -24,7 +26,7 @@ class TestCase extends Orchestra
         ];
     }
 
-    public function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app): void
     {
         config()->set('database.default', 'testing');
 

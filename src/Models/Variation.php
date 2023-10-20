@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Variation extends BaseModel
+final class Variation extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,9 +16,8 @@ class Variation extends BaseModel
     /**
      * Retrieve all Items.
      *
-     * @param int   $product_id
-     * @param array $options
-     *
+     * @param  int  $product_id
+     * @param  array  $options
      * @return array
      */
     protected function all($product_id, $options = [])
@@ -29,10 +30,9 @@ class Variation extends BaseModel
     /**
      * Retrieve single Item.
      *
-     * @param int   $product_id
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $product_id
+     * @param  int  $id
+     * @param  array  $options
      * @return object
      */
     protected function find($product_id, $id, $options = [])
@@ -45,9 +45,8 @@ class Variation extends BaseModel
     /**
      * Create new Item.
      *
-     * @param int   $product_id
-     * @param array $data
-     *
+     * @param  int  $product_id
+     * @param  array  $data
      * @return object
      */
     protected function create($product_id, $data)
@@ -60,10 +59,9 @@ class Variation extends BaseModel
     /**
      * Update Existing Item.
      *
-     * @param int   $product_id
-     * @param int   $id
-     * @param array $data
-     *
+     * @param  int  $product_id
+     * @param  int  $id
+     * @param  array  $data
      * @return object
      */
     protected function update($product_id, $id, $data)
@@ -76,10 +74,9 @@ class Variation extends BaseModel
     /**
      * Destroy Item.
      *
-     * @param int   $product_id
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $product_id
+     * @param  int  $id
+     * @param  array  $options
      * @return object
      */
     protected function delete($product_id, $id, $options = [])
@@ -92,9 +89,8 @@ class Variation extends BaseModel
     /**
      * Batch Update.
      *
-     * @param int   $product_id
-     * @param array $data
-     *
+     * @param  int  $product_id
+     * @param  array  $data
      * @return object
      */
     protected function batch($product_id, $data)
@@ -107,11 +103,10 @@ class Variation extends BaseModel
     /**
      * Paginate results.
      *
-     * @param int   $product_id
-     * @param int   $per_page
-     * @param int   $current_page
-     * @param array $options
-     *
+     * @param  int  $product_id
+     * @param  int  $per_page
+     * @param  int  $current_page
+     * @param  array  $options
      * @return array
      */
     protected function paginate(
@@ -128,8 +123,7 @@ class Variation extends BaseModel
     /**
      * Count all results.
      *
-     * @param int $product_id
-     *
+     * @param  int  $product_id
      * @return int
      */
     protected function count($product_id)
@@ -142,8 +136,7 @@ class Variation extends BaseModel
     /**
      * Store data.
      *
-     * @param int $product_id
-     *
+     * @param  int  $product_id
      * @return array
      */
     public function save($product_id)

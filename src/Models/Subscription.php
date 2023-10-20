@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Subscription extends BaseModel
+final class Subscription extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,9 +16,8 @@ class Subscription extends BaseModel
     /**
      * Retrieve all notes.
      *
-     * @param int   $subscription_id
-     * @param array $options
-     *
+     * @param  int  $subscription_id
+     * @param  array  $options
      * @return array
      */
     protected function notes($subscription_id, $options = [])
@@ -29,10 +30,9 @@ class Subscription extends BaseModel
     /**
      * Retreive a note.
      *
-     * @param int   $subscription_id
-     * @param int   $note_id
-     * @param array $options
-     *
+     * @param  int  $subscription_id
+     * @param  int  $note_id
+     * @param  array  $options
      * @return object
      */
     protected function note($subscription_id, $note_id, $options = [])
@@ -45,9 +45,8 @@ class Subscription extends BaseModel
     /**
      * Create a note.
      *
-     * @param int   $subscription_id
-     * @param array $data
-     *
+     * @param  int  $subscription_id
+     * @param  array  $data
      * @return object
      */
     protected function createNote($subscription_id, $data = [])
@@ -60,10 +59,9 @@ class Subscription extends BaseModel
     /**
      * Delete a note.
      *
-     * @param int   $subscription_id
-     * @param int   $note_id
-     * @param array $options
-     *
+     * @param  int  $subscription_id
+     * @param  int  $note_id
+     * @param  array  $options
      * @return object
      */
     protected function deleteNote($subscription_id, $note_id, $options = [])
@@ -76,9 +74,8 @@ class Subscription extends BaseModel
     /**
      * Retrieve all orders for the subscription.
      *
-     * @param int   $subscription_id
-     * @param array $options
-     *
+     * @param  int  $subscription_id
+     * @param  array  $options
      * @return array
      */
     protected function orders($subscription_id, $options = [])

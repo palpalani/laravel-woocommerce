@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Customer extends Facade
+final class Customer extends Facade
 {
     /**
      * Get the registered name of the component.

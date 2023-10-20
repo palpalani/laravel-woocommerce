@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Customer extends BaseModel
+final class Customer extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,8 +16,7 @@ class Customer extends BaseModel
     /**
      * Download.
      *
-     * @param int $id
-     *
+     * @param  int  $id
      * @return object
      */
     protected function downloads($id, $options = [])

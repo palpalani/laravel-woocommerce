@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Setting extends BaseModel
+final class Setting extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,10 +16,9 @@ class Setting extends BaseModel
     /**
      * Retrieve option.
      *
-     * @param int   $group_id
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $group_id
+     * @param  int  $id
+     * @param  array  $options
      * @return array
      */
     protected function option($group_id, $id, $options = [])
@@ -30,9 +31,8 @@ class Setting extends BaseModel
     /**
      * Retrieve options.
      *
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $id
+     * @param  array  $options
      * @return array
      */
     protected function options($id, $options = [])
@@ -45,10 +45,9 @@ class Setting extends BaseModel
     /**
      * Update Existing Item.
      *
-     * @param int   $group_id
-     * @param int   $id
-     * @param array $data
-     *
+     * @param  int  $group_id
+     * @param  int  $id
+     * @param  array  $data
      * @return object
      */
     protected function update($group_id, $id, $data)
@@ -61,8 +60,7 @@ class Setting extends BaseModel
     /**
      * Batch Update.
      *
-     * @param array $data
-     *
+     * @param  array  $data
      * @return object
      */
     protected function batch($id, $data)

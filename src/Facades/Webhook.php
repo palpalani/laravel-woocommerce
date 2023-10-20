@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Webhook extends Facade
+final class Webhook extends Facade
 {
     /**
      * Get the registered name of the component.

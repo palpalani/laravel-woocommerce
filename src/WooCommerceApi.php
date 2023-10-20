@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce;
 
 use Automattic\WooCommerce\Client;
 use Codexshaper\WooCommerce\Traits\WooCommerceTrait;
+use Exception;
 
-class WooCommerceApi
+final class WooCommerceApi
 {
     use WooCommerceTrait;
 
@@ -37,15 +40,15 @@ class WooCommerceApi
                 config('woocommerce.consumer_key'),
                 config('woocommerce.consumer_secret'),
                 [
-                    'version'           => 'wc/'.config('woocommerce.api_version'),
+                    'version'           => 'wc/' . config('woocommerce.api_version'),
                     'wp_api'            => config('woocommerce.wp_api_integration'),
                     'verify_ssl'        => config('woocommerce.verify_ssl'),
                     'query_string_auth' => config('woocommerce.query_string_auth'),
                     'timeout'           => config('woocommerce.timeout'),
                 ]
             );
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 }

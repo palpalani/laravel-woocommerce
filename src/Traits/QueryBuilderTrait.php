@@ -1,47 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Traits;
 
 use Codexshaper\WooCommerce\Facades\WooCommerce;
 use Illuminate\Support\LazyCollection;
+use stdClass;
+use Exception;
 
 trait QueryBuilderTrait
 {
-    /**
-     * @var
-     */
     protected $options = [];
 
-    /**
-     * @var
-     */
     protected $where = [];
 
-    /**
-     * @var
-     */
     protected $properties = [];
 
-    /**
-     * @var
-     */
     protected $isLazyCollection = false;
 
-    /**
-     * @var
-     */
     protected $isCollection = true;
 
-    /**
-     * @var
-     */
     protected $isOriginal = false;
 
     /**
      * Retrieve all Items.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function all($options = [])
@@ -60,9 +45,8 @@ trait QueryBuilderTrait
     /**
      * Retrieve single Item.
      *
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $id
+     * @param  array  $options
      * @return object
      */
     protected function find($id, $options = [])
@@ -81,8 +65,7 @@ trait QueryBuilderTrait
     /**
      * Create new Item.
      *
-     * @param array $data
-     *
+     * @param  array  $data
      * @return object
      */
     protected function create($data)
@@ -101,9 +84,8 @@ trait QueryBuilderTrait
     /**
      * Update Existing Item.
      *
-     * @param int   $id
-     * @param array $data
-     *
+     * @param  int  $id
+     * @param  array  $data
      * @return object
      */
     protected function update($id, $data)
@@ -122,9 +104,8 @@ trait QueryBuilderTrait
     /**
      * Destroy Item.
      *
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $id
+     * @param  array  $options
      * @return object
      */
     protected function delete($id, $options = [])
@@ -143,8 +124,7 @@ trait QueryBuilderTrait
     /**
      * Batch Update.
      *
-     * @param array $data
-     *
+     * @param  array  $data
      * @return object
      */
     protected function batch($data)
@@ -186,14 +166,14 @@ trait QueryBuilderTrait
     protected function first()
     {
         if ($this->isLazyCollection) {
-            return LazyCollection::make($this->get()[0] ?? new \stdClass());
+            return LazyCollection::make($this->get()[0] ?? new stdClass);
         }
 
         if ($this->isCollection) {
-            return collect($this->get()[0] ?? new \stdClass());
+            return collect($this->get()[0] ?? new stdClass);
         }
 
-        return collect($this->get()[0] ?? new \stdClass());
+        return collect($this->get()[0] ?? new stdClass);
     }
 
     /**
@@ -241,18 +221,17 @@ trait QueryBuilderTrait
     /**
      * Set options for woocommerce request.
      *
-     * @param array $parameters
-     *
+     * @param  array  $parameters
      * @return object $this
      */
     protected function options($parameters)
     {
-        if (!is_array($parameters)) {
-            throw new \Exception('Options must be an array', 1);
+        if ( ! is_array($parameters)) {
+            throw new Exception('Options must be an array', 1);
         }
 
         if (empty($parameters)) {
-            throw new \Exception('Options must be pass at least one element', 1);
+            throw new Exception('Options must be pass at least one element', 1);
         }
 
         foreach ($parameters as $key => $value) {
@@ -265,16 +244,15 @@ trait QueryBuilderTrait
     /**
      * Join options for woocommerce request.
      *
-     * @param array $parameters
-     *
+     * @param  array  $parameters
      * @return object $this
      */
     protected function where(...$parameters)
     {
         if (count($parameters) < 2 || count($parameters) > 3) {
-            throw new \Exception('You can pass minimum 2 and maximum 3 paramneters');
+            throw new Exception('You can pass minimum 2 and maximum 3 paramneters');
         }
-        $field = strtolower($parameters[0]);
+        $field = mb_strtolower($parameters[0]);
         $value = count($parameters) == 3 ? $parameters[2] : $parameters[1];
 
         switch ($field) {
@@ -292,9 +270,8 @@ trait QueryBuilderTrait
     /**
      * Set order direction.
      *
-     * @param string $name
-     * @param string $direction
-     *
+     * @param  string  $name
+     * @param  string  $direction
      * @return object $this
      */
     protected function orderBy($name, $direction = 'desc')
@@ -308,10 +285,9 @@ trait QueryBuilderTrait
     /**
      * Paginate results.
      *
-     * @param int   $per_page
-     * @param int   $current_page
-     * @param array $options
-     *
+     * @param  int  $per_page
+     * @param  int  $current_page
+     * @param  array  $options
      * @return array
      */
     protected function paginate($per_page = 10, $current_page = 1, $options = [])
@@ -358,8 +334,8 @@ trait QueryBuilderTrait
             }
 
             return $results;
-        } catch (\Exception $ex) {
-            throw new \Exception($ex->getMessage(), 1);
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage(), 1);
         }
     }
 
@@ -375,8 +351,8 @@ trait QueryBuilderTrait
             $totalResults = WooCommerce::countResults();
 
             return $totalResults;
-        } catch (\Exception $ex) {
-            throw new \Exception($ex->getMessage(), 1);
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage(), 1);
         }
     }
 

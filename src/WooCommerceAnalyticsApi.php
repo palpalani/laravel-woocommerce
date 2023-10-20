@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce;
 
 use Automattic\WooCommerce\Client;
 use Codexshaper\WooCommerce\Traits\WooCommerceTrait;
+use Exception;
 
-class WooCommerceAnalyticsApi
+final class WooCommerceAnalyticsApi
 {
     use WooCommerceTrait;
 
@@ -44,8 +47,8 @@ class WooCommerceAnalyticsApi
                     'timeout'           => config('woocommerce.timeout'),
                 ]
             );
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1);
         }
     }
 }

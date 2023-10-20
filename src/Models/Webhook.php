@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Webhook extends BaseModel
+final class Webhook extends BaseModel
 {
     use QueryBuilderTrait;
 

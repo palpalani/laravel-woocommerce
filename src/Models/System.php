@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class System extends BaseModel
+final class System extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,8 +16,7 @@ class System extends BaseModel
     /**
      * Retrieve all Items.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function status($options = [])
@@ -28,9 +29,8 @@ class System extends BaseModel
     /**
      * Retrieve single tool.
      *
-     * @param int   $id
-     * @param array $options
-     *
+     * @param  int  $id
+     * @param  array  $options
      * @return object
      */
     protected function tool($id, $options = [])
@@ -43,8 +43,7 @@ class System extends BaseModel
     /**
      * Retrieve all tools.
      *
-     * @param array $options
-     *
+     * @param  array  $options
      * @return array
      */
     protected function tools($options = [])
@@ -57,9 +56,8 @@ class System extends BaseModel
     /**
      * Run tool.
      *
-     * @param int   $id
-     * @param array $data
-     *
+     * @param  int  $id
+     * @param  array  $data
      * @return object
      */
     protected function run($id, $data)

@@ -1,15 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce;
 
 use Codexshaper\WooCommerce\Models\BaseModel;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Query extends BaseModel
+final class Query extends BaseModel
 {
     use QueryBuilderTrait;
 
     protected $endpoint;
+
     protected static $instance = null;
 
     public function __construct($endpoint = '')
@@ -26,10 +29,10 @@ class Query extends BaseModel
 
     public function init()
     {
-        if (!static::$instance) {
-            static::$instance = new static();
+        if ( ! self::$instance) {
+            self::$instance = new self;
         }
 
-        return static::$instance;
+        return self::$instance;
     }
 }

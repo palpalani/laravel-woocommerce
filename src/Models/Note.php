@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codexshaper\WooCommerce\Models;
 
 use Codexshaper\WooCommerce\Facades\Query;
 use Codexshaper\WooCommerce\Traits\QueryBuilderTrait;
 
-class Note extends BaseModel
+final class Note extends BaseModel
 {
     use QueryBuilderTrait;
 
@@ -14,9 +16,8 @@ class Note extends BaseModel
     /**
      * Retrieve all Items.
      *
-     * @param int   $order_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  array  $options
      * @return array
      */
     protected function all($order_id, $options = [])
@@ -29,10 +30,9 @@ class Note extends BaseModel
     /**
      * Retrieve single Item.
      *
-     * @param int   $order_id
-     * @param int   $note_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  int  $note_id
+     * @param  array  $options
      * @return object
      */
     protected function find($order_id, $note_id, $options = [])
@@ -45,9 +45,8 @@ class Note extends BaseModel
     /**
      * Create new Item.
      *
-     * @param int   $order_id
-     * @param array $data
-     *
+     * @param  int  $order_id
+     * @param  array  $data
      * @return object
      */
     protected function create($order_id, $data)
@@ -60,10 +59,9 @@ class Note extends BaseModel
     /**
      * Destroy Item.
      *
-     * @param int   $order_id
-     * @param int   $note_id
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  int  $note_id
+     * @param  array  $options
      * @return object
      */
     protected function delete($order_id, $note_id, $options = [])
@@ -77,11 +75,10 @@ class Note extends BaseModel
      * Paginate results.
      *
      *
-     * @param int   $order_id
-     * @param int   $per_page
-     * @param int   $current_page
-     * @param array $options
-     *
+     * @param  int  $order_id
+     * @param  int  $per_page
+     * @param  int  $current_page
+     * @param  array  $options
      * @return array
      */
     protected function paginate(
@@ -98,8 +95,7 @@ class Note extends BaseModel
     /**
      * Count all results.
      *
-     * @param int $order_id
-     *
+     * @param  int  $order_id
      * @return int
      */
     protected function count($order_id)
@@ -112,8 +108,7 @@ class Note extends BaseModel
     /**
      * Store data.
      *
-     * @param int $order_id
-     *
+     * @param  int  $order_id
      * @return array
      */
     public function save($order_id)
